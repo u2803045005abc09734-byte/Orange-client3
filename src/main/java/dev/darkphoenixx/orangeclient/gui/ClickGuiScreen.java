@@ -2,9 +2,11 @@ package dev.darkphoenixx.orangeclient.gui;
 
 import dev.darkphoenixx.orangeclient.module.ClientModule;
 import dev.darkphoenixx.orangeclient.module.ModuleRegistry;
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import org.lwjgl.glfw.GLFW;
 
 public final class ClickGuiScreen extends Screen {
     private static final int BACKGROUND = 0xF20D1016;
@@ -59,8 +61,10 @@ public final class ClickGuiScreen extends Screen {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (button == 0) {
+    public boolean mouseClicked(Click click, boolean doubled) {
+        double mouseX = click.x();
+        double mouseY = click.y();
+        if (click.button() == GLFW.GLFW_MOUSE_BUTTON_1) {
             int top = panelY + 70 - scroll;
             int index = 0;
             for (ClientModule module : ModuleRegistry.all()) {
@@ -73,7 +77,7 @@ public final class ClickGuiScreen extends Screen {
                 index++;
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(click, doubled);
     }
 
     @Override
