@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "orange_client",
+  "version": "${version}",
+  "name": "Orange Client",
+  "description": "A polished client-side utility and customization mod.",
+  "authors": ["DarkPhoenixxMC"],
+  "contact": {
+    "sources": "https://github.com/u2803045005abc09734-byte/Orange-client3"
+  },
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.darkphoenixx.orangeclient.OrangeClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
