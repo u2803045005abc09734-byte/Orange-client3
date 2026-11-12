@@ -30,4 +30,8 @@ public final class ModuleRegistry {
     public static List<ClientModule> all() {
         return Collections.unmodifiableList(MODULES);
     }
+
+    public static boolean isEnabled(String name) {
+        return MODULES.stream().anyMatch(module -> module.name().equals(name) && module.enabled());
+    }
 }
