@@ -1,6 +1,7 @@
 package dev.darkphoenixx.orangeclient;
 
 import dev.darkphoenixx.orangeclient.gui.ClickGuiScreen;
+import dev.darkphoenixx.orangeclient.hud.OverlayHud;
 import dev.darkphoenixx.orangeclient.module.ModuleRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -16,6 +17,7 @@ public final class OrangeClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ModuleRegistry.registerDefaults();
+        OverlayHud.register();
         openGuiKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.orange_client.open_gui",
                 InputUtil.Type.KEYSYM,
